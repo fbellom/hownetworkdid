@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+} */
+
+/* .container {
+  text-align: center;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.feedback-options {
+  margin-top: 20px;
+}
+
+.feedback-button {
+  font-size: 50px;
+  margin: 0 12px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  text-align: center;
+  align-items: center;
+  max-width: 128px;
+  max-height: 128px;
+}
+
+.feedback-button:hover {
+  transform: scale(1.1);
+}
+
+.response-message {
+  margin-top: 20px;
+  font-size: 18px;
+  color: green;
+}
+.sticky-header {
+  position: sticky;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  top: 0;
+  padding: 10px;
+}
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+}
+
+.card--selection {
+  text-align: center;
+  align-items: center;
+}
+
+.response--section,
+.pool--section {
+  height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.centered-notice {
+  width: 400px; /* Fixed width */
+  height: 400px; /* Fixed height */
+  background-color: #efefef; /* Background color for the box */
+  /* display: flex; Optional: Center content inside the box */
+  justify-content: center; /* Optional: Centers content horizontally inside the box */
+  align-items: center; /* Optional: Centers content vertically inside the box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+  border-radius: 10px; /* Optional rounded corners */
+}
+
+.hero {
+  background-image: url("../img/GSX_FY25_REG_Background_Img_Desktop.jpg");
+  background-size: cover;
+}

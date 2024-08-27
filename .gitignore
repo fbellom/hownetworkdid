@@ -1,0 +1,9 @@
+node_modules/
+routes/
+db/
+utils/
+api.js
+app.js
+feedback.db
+.env
+.DS_Store

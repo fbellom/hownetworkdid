@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>howNetworkDid</title>
+
+    <!-- 3rd-Party Style -->
+    <link rel="stylesheet" href="dist/css/pico/pico.colors.css" />
+    <link rel="stylesheet" href="dist/css/pico/pico.min.css" />
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="dist/css/style.css" />
+  </head>
+  <body class="pico-background-zinc-850">
+    <header class="hero container-fluid sticky-header" data-theme="dark">
+      <nav>
+        <ul>
+          <li><img src="dist/img/GSX_Logo_Reg_Mobile-2x.png" alt="GSX" /></li>
+          <!-- <li><strong class="contrast">GSX FY25</strong></li> -->
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container" data-theme="dark">
+      <section id="options" class="pool--section">
+        <h1 class="contrast">How is your GSX Network experience?</h1>
+        <div class="grid feedback-options">
+          <article class="pico-background-green-300 card--selection">
+            <button onclick="showReason('Good')" class="feedback-button good">
+              <img src="dist/img/smiling-face.png" alt="Good" />
+            </button>
+          </article>
+
+          <article class="pico-background-pumpkin-300 card--selection">
+            <button
+              onclick="showReason('Neutral')"
+              class="feedback-button neutral"
+            >
+              <img src="dist/img/bored.png" alt="Neutral" />
+            </button>
+          </article>
+
+          <article class="pico-background-red-500 card--selection">
+            <button onclick="showReason('Bad')" class="feedback-button bad">
+              <img src="dist/img/sad.png" alt="Bad" />
+            </button>
+          </article>
+        </div>
+        <div class="grid">
+          <div id="reason-container" class="hidden">
+            <textarea
+              id="reason-text"
+              placeholder="Please let us know why..."
+            ></textarea>
+            <button onclick="submitReason()">Submit</button>
+          </div>
+        </div>
+      </section>
+      <section id="response-container" class="response--section hidden">
+        <div class="grid">
+          <article id="response-message" class="response-message"></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container-fluid sticky-footer pico-background-azure-850">
+      hownetworkdid.com &copy;2024 #ciscogsx
+    </footer>
+    <script src="dist/js/index.js"></script>
+  </body>
+</html>
