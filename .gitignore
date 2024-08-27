@@ -1,7 +1,8 @@
 node_modules/
 routes/
 db/
-utils/
+utils/tokenize.js
+utils/userInfo.js
 api.js
 app.js
 feedback.db
