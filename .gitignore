@@ -2,7 +2,7 @@ node_modules/
 routes/
 db/
 utils/tokenize.js
-utils/userInfo.js
+
 api.js
 app.js
 *.db
