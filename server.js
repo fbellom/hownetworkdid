@@ -3,6 +3,7 @@ const sqlite3 = require("sqlite3").verbose();
 const bodyParser = require("body-parser");
 const path = require("path");
 const logger = require("./utils/logger");
+const { captureUserInfo } = require("./utils/userInfo");
 
 const app = express();
 const PORT = 3000;
@@ -26,7 +27,11 @@ const db = new sqlite3.Database("./feedback.db", (err) => {
             date TEXT,
             time TEXT,
             reason TEXT,
-            keywords TEXT)`,
+            keywords TEXT,
+            browser TEXT,
+            os TEXT,
+            location TEXT,
+            ipaddr TEXT)`,
       (err) => {
         if (err) {
           console.error("Error creating table " + err.message);
@@ -89,10 +94,22 @@ app.post("/submit-feedback", (req, res) => {
   const date = new Date().toISOString().split("T")[0];
   const time = new Date().toISOString().split("T")[1].split(".")[0];
   const keywords = reason ? tokenizeReason(reason) : "";
+  const { browser, os, location, ip } = captureUserInfo(req);
 
   db.run(
-    `INSERT INTO feedback (event,response, date, time, reason, keywords) VALUES (?,?, ?, ?, ?, ?)`,
-    [event, response, date, time, reason || "", keywords],
+    `INSERT INTO feedback (event,response, date, time, reason, keywords, browser, os, location, ipaddr) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      event,
+      response,
+      date,
+      time,
+      reason || "",
+      keywords,
+      browser,
+      os,
+      location,
+      ip,
+    ],
     function (err) {
       if (err) {
         return console.log(err.message);
