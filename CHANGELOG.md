@@ -29,3 +29,20 @@ Refactoring the Codebase
 - Add Error Handlers to 429 Rate Limiting
 - Add variables for the background-image for the hero css class
 - Modularize Header and Footer to build it dynamically
+
+## Version 2024-09-01
+
+Adding Event Manager and Multitenancy Support with Authentication
+
+### Front-End
+
+- TODO:
+  - Tenant and Event Manager
+  - Authentication Form
+
+### Backend
+
+- TODO:
+  - AuthC Database
+  - RBAC
+  - Tenants and Events Mager API

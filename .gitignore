@@ -1,9 +1,8 @@
 node_modules/
-routes/
-db/
-utils/tokenize.js
 
-app.js
+
+
+
 *.db
 .env
 .DS_Store
