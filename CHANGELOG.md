@@ -20,6 +20,7 @@ Refactoring the Codebase
 - Add Rate Limit to avoid App Abuse
 - Refactoring the backend moving endpoint to routes/
 - make feedbackRouter Async for DB Operations
+- change server side name to `api.js`
 
 ### Front End
 
