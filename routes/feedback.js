@@ -7,6 +7,7 @@ const { tokenizeReason } = require("../utils/tokenizeReason");
 const { db } = require("../db/db");
 const { setFeedbackCookies } = require("../utils/cookieUtils");
 const { generateToken } = require("../utils/tokenUtils");
+const { checkForDuplicateSubmission } = require("../utils/dbUtils");
 
 // Middleware for rate limiting
 router.use(rateLimiter);
@@ -19,7 +20,23 @@ router.post("/", async (req, res) => {
     const time = new Date().toISOString().split("T")[1].split(".")[0];
     const keywords = reason ? tokenizeReason(reason) : "";
     const { browser, os, location, ip } = captureUserInfo(req);
-    const token = await generateToken();
+
+    // Check if a token already exists in the cookies
+    let token = req.cookies.feedbackToken;
+
+    // Generate a new token only if the cookie token does not exist
+    if (!token) {
+      token = await generateToken();
+    }
+
+    // Check for duplicate submissions
+    const isDuplicate = await checkForDuplicateSubmission(db, ip, token);
+    if (isDuplicate) {
+      console.log("Duplicate submission detected.");
+      return res.status(409).json({
+        error: "Duplicate feedback submission detected. Please try again.",
+      });
+    }
 
     await insertFeedback(db, {
       event,
@@ -41,11 +58,9 @@ router.post("/", async (req, res) => {
   } catch (err) {
     if (err.message.includes("UNIQUE constraint failed")) {
       console.log("Duplicate submit_hash detected, generating a new one.");
-      return res
-        .status(409)
-        .json({
-          error: "Duplicate feedback submission detected. Please try again.",
-        });
+      return res.status(409).json({
+        error: "Duplicate feedback submission detected. Please try again.",
+      });
     }
     console.error("Error inserting feedback:", err.message);
     res.status(500).json({ error: "Internal Server Error" });

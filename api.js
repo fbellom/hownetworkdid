@@ -9,6 +9,8 @@ const PORT = 3000;
 
 //Import Routes
 const feedbackRoutes = require("./routes/feedback");
+const tenantRoutes = require("./routes/tenantManager");
+const eventRoutes = require("./routes/eventManager");
 
 // Middleware
 app.use(bodyParser.json());
@@ -19,6 +21,8 @@ app.use(cookieParser());
 
 //Use Routers Endpoints
 app.use("/submit-feedback", feedbackRoutes);
+app.use("/tenants", tenantRoutes);
+app.use("/events", eventRoutes);
 
 // Start server
 app.listen(PORT, () => {

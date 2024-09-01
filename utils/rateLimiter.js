@@ -8,8 +8,15 @@ const rateLimiter = rateLimit({
     error:
       "You have already submitted feedback today. Please try again tomorrow.",
   },
-  keyGenerator: (req) =>
-    req.headers["x-forwarded-for"] || req.connection.remoteAddress, // Use IP address for rate limiting
+  keyGenerator: (req) => {
+    const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress; // Use IP address for rate limiting
+    const token = req.cookies.feedbackToken || "";
+    const userIdentifier = `${ip}-${token}`; // Get the cookie token (use an empty string if not token set)
+
+    // Logging
+    console.log(`User ${userIdentifier} submitted feedback at ${new Date()}`);
+    return userIdentifier;
+  },
 });
 
 module.exports = { rateLimiter };
