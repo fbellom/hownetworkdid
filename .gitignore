@@ -3,9 +3,11 @@ routes/
 db/
 utils/tokenize.js
 
-api.js
 app.js
 *.db
 .env
 .DS_Store
+*.orig
+.vscode/
+_server.js
 

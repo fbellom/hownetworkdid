@@ -1,18 +1,21 @@
 {
   "name": "howwedidit",
-  "version": "1.0.0",
-  "description": "Basic Front End tool to collect user feedback using smiley face icons",
-  "main": "server.js",
+  "version": "2024.08.31",
+  "description": "Collect User Experience feedback using smiley face icons",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node api.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Freddy Bello",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
     "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
     "geoip-lite": "^1.4.10",
     "morgan": "^1.10.0",
     "sqlite3": "^5.1.7",
