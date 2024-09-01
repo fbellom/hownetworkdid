@@ -22,9 +22,9 @@ by default ExpressJS serves on port 3000
 
 ## Stack
 
-NodeJS
-ExpressJS
-Vanilla JS
-PicoCSS
-HTML5
-Sqlite3
+- NodeJS
+- ExpressJS
+- Vanilla JS
+- PicoCSS
+- HTML5
+- Sqlite3
