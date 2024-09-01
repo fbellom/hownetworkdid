@@ -8,4 +8,6 @@ app.js
 *.db
 .env
 .DS_Store
+*.orig
+
 
