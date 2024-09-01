@@ -9,5 +9,5 @@ app.js
 .env
 .DS_Store
 *.orig
-
+.vscode/
 

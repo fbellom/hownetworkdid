@@ -2,13 +2,13 @@
 
 ## Version 2024-08-26
 
-Initial Version
-Minimum Viable Product
-Deployed at AWS Lightsail
+- Initial Version
+- Minimum Viable Product
+- Deployed at AWS Lightsail
 
 ## Version 2024-08-27
 
-User Agent Info Capture including os, Browser IP and location
+- User Agent Info Capture including os, Browser IP and location
 
 ## Version 2024-08-31
 
