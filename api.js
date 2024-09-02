@@ -15,16 +15,16 @@ require("dotenv").config();
 
 // Initialize Databases
 require("./db/initTenantsDB");
-require("./db/initFeedbackDB");
 
 // Check for Root User Utils
 const checkRootUser = require("./utils/checkRootUser");
 
 //Import Routes
-const feedbackRoutes = require("./routes/feedback");
+const submitRoutes = require("./routes/submitFeedback");
 const tenantRoutes = require("./routes/tenantManager");
 const eventRoutes = require("./routes/eventManager");
 const authRoutes = require("./routes/authManager");
+const feedbackRoutes = require("./routes/feedbackManager");
 
 // Middleware
 app.use(bodyParser.json());
@@ -35,7 +35,8 @@ app.use(cookieParser());
 
 //Use Routers Endpoints
 app.use("/users", authRoutes);
-app.use("/submit-feedback", feedbackRoutes);
+app.use("/feedback", feedbackRoutes);
+app.use("/submit-feedback", submitRoutes);
 app.use(
   "/tenants",
   authenticateJWT,

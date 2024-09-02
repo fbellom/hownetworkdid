@@ -48,6 +48,5 @@ Adding Event Manager and Multitenancy Support with Authentication
   - Tenant Manager API
   - Authentication with JWT
   - Role Based Authentication
-
-- TODO:
-  - Events Manager API
+  - Event Manager API
+  - Multitenant Feedback Manager
