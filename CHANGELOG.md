@@ -42,7 +42,12 @@ Adding Event Manager and Multitenancy Support with Authentication
 
 ### Backend
 
+- ADDed:
+
+  - Root User creation and Validation API
+  - Tenant Manager API
+  - Authentication with JWT
+  - Role Based Authentication
+
 - TODO:
-  - AuthC Database
-  - RBAC
-  - Tenants and Events Mager API
+  - Events Manager API

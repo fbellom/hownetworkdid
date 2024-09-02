@@ -7,4 +7,5 @@ node_modules/
 *.orig
 .vscode/
 _server.js
+curl_queries.txt
 

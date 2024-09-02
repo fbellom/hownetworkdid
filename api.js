@@ -4,13 +4,27 @@ const path = require("path");
 const logger = require("./utils/logger");
 const cookieParser = require("cookie-parser");
 
+// Auth Middleware
+const { authenticateJWT, authorizeRoles } = require("./utils/authUtils");
+
 const app = express();
 const PORT = 3000;
+
+// Initialize .env file
+require("dotenv").config();
+
+// Initialize Databases
+require("./db/initTenantsDB");
+require("./db/initFeedbackDB");
+
+// Check for Root User Utils
+const checkRootUser = require("./utils/checkRootUser");
 
 //Import Routes
 const feedbackRoutes = require("./routes/feedback");
 const tenantRoutes = require("./routes/tenantManager");
 const eventRoutes = require("./routes/eventManager");
+const authRoutes = require("./routes/authManager");
 
 // Middleware
 app.use(bodyParser.json());
@@ -20,11 +34,29 @@ app.use(logger);
 app.use(cookieParser());
 
 //Use Routers Endpoints
+app.use("/users", authRoutes);
 app.use("/submit-feedback", feedbackRoutes);
-app.use("/tenants", tenantRoutes);
-app.use("/events", eventRoutes);
+app.use(
+  "/tenants",
+  authenticateJWT,
+  authorizeRoles("rootadm", "owner", "admin"),
+  tenantRoutes
+);
+app.use(
+  "/events",
+  authenticateJWT,
+  authorizeRoles("rootadm", "owner", "user", "admin"),
+  eventRoutes
+);
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+//Validate Root User befor start the server
+checkRootUser((err) => {
+  if (err) {
+    console.error("Failed to verify root user");
+    // process.exit(1);
+  }
+  // Start server
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
 });
