@@ -6,6 +6,7 @@ function insertNewFeedback(db, feedbackData) {
       eventCode,
       orgId,
       response,
+      rating,
       reason,
       keywords,
       browser,
@@ -16,11 +17,12 @@ function insertNewFeedback(db, feedbackData) {
     } = feedbackData;
 
     db.run(
-      `INSERT INTO feedback (event_code, tenant_org_id, response, reason, keywords, browser, os, location, ipaddr, submit_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO feedback (event_code, tenant_org_id, response, rating, reason, keywords, browser, os, location, ipaddr, submit_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         eventCode,
         orgId,
         response,
+        rating,
         reason || "",
         keywords,
         browser,
@@ -45,6 +47,7 @@ function insertFeedback(db, feedbackData) {
       eventCode,
       orgId,
       response,
+      rating,
       date,
       time,
       reason,
@@ -57,11 +60,12 @@ function insertFeedback(db, feedbackData) {
     } = feedbackData;
 
     db.run(
-      `INSERT INTO feedback (event_code, tenant_org_id,response, date, time, reason, keywords, browser, os, location, ipaddr, submit_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO feedback (event_code, tenant_org_id,response, rating, date, time, reason, keywords, browser, os, location, ipaddr, submit_hash) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         eventCode,
         orgId,
         response,
+        rating,
         date,
         time,
         reason || "",

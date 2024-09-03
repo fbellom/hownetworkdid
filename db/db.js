@@ -11,6 +11,7 @@ const db = new sqlite3.Database("./feedback.db", (err) => {
               event_code TEXT,
               tenant_org_id TEXT,
               response TEXT CHECK(response IN ('Good', 'Neutral', 'Bad')),  -- Only allows specific values
+              rating REAL, -- Values between 1 to 5
               date TEXT DEFAULT (date('now')), -- Automatically sets the current date
               time TEXT DEFAULT (time('now')),  -- Automatically sets the current time
               reason TEXT,

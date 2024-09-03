@@ -54,12 +54,13 @@ Adding Event Manager and Multitenancy Support with Authentication
 - ADD
   - New parametric URL to submit orgId and EventId `http://howurateit.com/?orgId=cisco-connect-latam&eventCode=cloud-security-pod-02`
   - Dynamic POD Label, based on eventCode
+  - Custom 404.html Redirect
+  - favicon
+  - Rating 1 to 5
 
 ### Backend
 
 - ADD:
 
   - New API URI /submit-feedback/o/:orgId/:eventCode
-
-- TODO:
-  - Rate Calculation averaging Responses Good:5, Neutral:3, Bad: 1
+  - Feedback Database extended

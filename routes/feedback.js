@@ -18,7 +18,7 @@ const {
 // Handle feedback submission
 router.post("/", async (req, res) => {
   try {
-    const { response, reason } = req.body;
+    const { response, reason, rating } = req.body;
     const date = new Date().toISOString().split("T")[0];
     const time = new Date().toISOString().split("T")[1].split(".")[0];
     const keywords = reason ? tokenizeReason(reason) : "";
@@ -31,6 +31,7 @@ router.post("/", async (req, res) => {
       eventCode,
       orgId,
       response,
+      rating,
       date,
       time,
       reason,
@@ -61,7 +62,7 @@ router.post("/o/:orgId/:eventCode", async (req, res) => {
   try {
     const eventCode = req.params.eventCode;
     const orgId = req.params.orgId;
-    const { response, reason } = req.body;
+    const { response, reason, rating } = req.body;
     const keywords = reason ? tokenizeReason(reason) : "";
     const { browser, os, location, ip } = captureUserInfo(req);
     const token = await generateToken();
@@ -73,6 +74,7 @@ router.post("/o/:orgId/:eventCode", async (req, res) => {
       eventCode,
       orgId,
       response,
+      rating,
       reason,
       keywords,
       browser,

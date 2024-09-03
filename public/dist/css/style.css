@@ -91,3 +91,9 @@ body {
   max-width: 80%; /* Responsive width */
   text-align: center; /* Center text */
 }
+
+.huri_smiley_circle {
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}

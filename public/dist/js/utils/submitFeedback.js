@@ -16,8 +16,8 @@ export function submitFeedback(currentEvent, orgId, eventCode) {
   }
 
   // Validate OrgId and eventCode
-  console.log("OrgId: ", orgId);
-  console.log("EventCode: ", eventCode);
+  // console.log("OrgId: ", orgId);
+  // console.log("EventCode: ", eventCode);
 
   if (!orgId || !eventCode) {
     handleError(
@@ -27,6 +27,20 @@ export function submitFeedback(currentEvent, orgId, eventCode) {
   }
 
   showLoadingIndicator();
+
+  let rating;
+  if (selectedFeedback === "Good") {
+    rating = 5.0;
+  } else if (selectedFeedback === "Neutral") {
+    rating = 3.0;
+  } else if (selectedFeedback === "Bad") {
+    rating = 1.0;
+  } else {
+    rating = 0; // Default rating if none of the expected values match
+  }
+
+  console.log("Rated:", rating);
+
   //fetch("/submit-feedback", {
   fetch(`/submit-feedback/o/${orgId}/${eventCode}`, {
     method: "POST",
@@ -37,6 +51,7 @@ export function submitFeedback(currentEvent, orgId, eventCode) {
       //event: currentEvent,
       response: selectedFeedback,
       reason: reasonText,
+      rating: rating,
     }),
   })
     .then((response) => {

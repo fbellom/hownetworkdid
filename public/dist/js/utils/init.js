@@ -18,8 +18,8 @@ export function init() {
   orgId = urlParams.get("orgId"); // "9999991"
   eventCode = urlParams.get("eventCode"); // "cloud-security-pod"
 
-  console.log(orgId); // Output: "9999991"
-  console.log(eventCode); // Output: "cloud-security-pod"
+  // console.log(orgId); // Output: "9999991"
+  // console.log(eventCode); // Output: "cloud-security-pod"
 
   // Dynamically update the header and footer based on currentEvent
   updateEventLabel(eventCode);

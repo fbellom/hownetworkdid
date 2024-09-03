@@ -3,15 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Network Experience Feedback</title>
+    <title>HowURateIT</title>
+
+    <!-- 3rd-Party Style -->
+    <link rel="stylesheet" href="dist/css/pico/pico.colors.css" />
+    <link rel="stylesheet" href="dist/css/pico/pico.min.css" />
 
     <!-- Custom Style -->
     <link rel="stylesheet" href="dist/css/style.css" />
   </head>
-  <body>
-    <div>
-      <h1>Oops Something Went Wrong!!!</h1>
-      <h2>Content Does not Exists!!!</h2>
-    </div>
+  <body class="pico-background-zinc-850" data-event="connectLATAM">
+    <header
+      id="dynamic-header"
+      class="hero container-fluid sticky-header"
+      data-theme="dark"
+    ></header>
+    <main>
+      <div class="grid centered-message">
+        <div>
+          <img
+            class="huri_smiley_circle"
+            src="dist/img/HURI_Monogram_Circle.png"
+            alt=""
+          />
+        </div>
+        <div>
+          <h1>Oops Not Found!!!</h1>
+          <p>Content doesn't exists!!!</p>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      id="dynamic-footer"
+      class="container-fluid sticky-footer pico-background-azure-850"
+    ></footer>
+    <!-- <script src="dist/js/index.js"></script> -->
+    <script type="module" src="dist/js/webapp.js"></script>
   </body>
 </html>
