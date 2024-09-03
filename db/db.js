@@ -8,10 +8,11 @@ const db = new sqlite3.Database("./feedback.db", (err) => {
     db.run(
       `CREATE TABLE IF NOT EXISTS feedback (
               id INTEGER PRIMARY KEY AUTOINCREMENT,
-              event TEXT,
-              response TEXT,
-              date TEXT,
-              time TEXT,
+              event_code TEXT,
+              tenant_org_id TEXT,
+              response TEXT CHECK(response IN ('Good', 'Neutral', 'Bad')),  -- Only allows specific values
+              date TEXT DEFAULT (date('now')), -- Automatically sets the current date
+              time TEXT DEFAULT (time('now')),  -- Automatically sets the current time
               reason TEXT,
               keywords TEXT,
               browser TEXT,
@@ -26,6 +27,21 @@ const db = new sqlite3.Database("./feedback.db", (err) => {
       }
     );
   }
+
+  console.log("Feedback table created or already exists.");
+  // Create Indices
+  // db.run(
+  //   `CREATE INDEX IF NOT EXISTS idx_feedback_event_code ON feedback(event_code);`
+  // );
+  // db.run(
+  //   `CREATE INDEX IF NOT EXISTS idx_feedback_tenant_org_id ON feedback(tenant_org_id);`
+  // );
+  // db.run(
+  //   `CREATE INDEX IF NOT EXISTS idx_feedback_event_tenant ON feedback(tenant_org_id, event_code);`
+  // );
+  // db.run(
+  //   `CREATE INDEX IF NOT EXISTS idx_feedback_submit_hash ON feedback(submit_hash);`
+  // );
 });
 
 module.exports = { db };

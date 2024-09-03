@@ -1,4 +1,4 @@
-function setFeedbackCookies(res, { token, event }) {
+function setFeedbackCookies(res, { token, eventCode }) {
   const cookieOptions = {
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: true,
@@ -7,7 +7,7 @@ function setFeedbackCookies(res, { token, event }) {
   };
 
   res.cookie("feedbackToken", token, cookieOptions);
-  res.cookie("feedbackPOD", event, cookieOptions);
+  res.cookie("feedbackPOD", eventCode, cookieOptions);
   res.cookie("feedbackSubmitted", "true", cookieOptions);
 }
 
