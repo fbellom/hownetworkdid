@@ -46,3 +46,21 @@ Adding Event Manager and Multitenancy Support with Authentication
   - AuthC Database
   - RBAC
   - Tenants and Events Mager API
+
+## Version 2024-09-02
+
+### FrontEnd
+
+- ADD
+  - New parametric URL to submit orgId and EventId `http://howurateit.com/?orgId=cisco-connect-latam&eventCode=cloud-security-pod-02`
+  - Dynamic POD Label, based on eventCode
+  - Custom 404.html Redirect
+  - favicon
+  - Rating 1 to 5
+
+### Backend
+
+- ADD:
+
+  - New API URI /submit-feedback/o/:orgId/:eventCode
+  - Feedback Database extended

@@ -7,6 +7,13 @@ export function toggleReasonContainer(feedback) {
   const reasonContainer = document.getElementById("reason-container");
   const reasonText = document.getElementById("reason-text");
 
+  let orgId, eventCode;
+
+  // Collect query string parameters from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  orgId = urlParams.get("orgId"); // "9999991"
+  eventCode = urlParams.get("eventCode"); // "cloud-security-pod"
+
   if (feedback === "Neutral" || feedback === "Bad") {
     // Reset the textarea content
     reasonText.value = "";
@@ -19,7 +26,7 @@ export function toggleReasonContainer(feedback) {
     // Fetch the currentEvent from the body data attribute
     const currentEvent = document.body.dataset.event;
     // Call submitFeedback directly for Good feedback
-    submitFeedback(currentEvent);
+    submitFeedback(currentEvent, orgId, eventCode);
   }
 }
 

@@ -1,5 +1,5 @@
 :root {
-  --hero-background-image: url("../img/connectLATAM_bg.jpg");
+  --hero-background-image: url("../img/hdr_bacground_darkblue_1920x360.png");
   --hero-background-size: cover;
   --hero-background-size-contain: contain;
 }
@@ -90,4 +90,10 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   max-width: 80%; /* Responsive width */
   text-align: center; /* Center text */
+}
+
+.huri_smiley_circle {
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
 }
