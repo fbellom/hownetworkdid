@@ -2,6 +2,12 @@
   --hero-background-image: url("../img/hdr_bacground_darkblue_1920x360.png");
   --hero-background-size: cover;
   --hero-background-size-contain: contain;
+  --cisco-midnight-blue-color: #07182d;
+  --cisco-blue-color: #02c8ff;
+  --cisco-medium-blue-color: #0a60ff;
+  --cisco-white-color: #ffffff;
+  --cisco-magenta-accent-color: #ff007f;
+  --cisco-orange-accent-color: #ff9000;
 }
 
 * {
@@ -96,4 +102,29 @@ body {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
+}
+
+/* Colors */
+.cisco-midnight-blue-color {
+  color: var(--cisco-midnight-blue-color);
+}
+
+.cisco-blue-color {
+  color: var(--cisco-blue-color);
+}
+
+.cisco-medium-blue-color {
+  color: var(--cisco-medium-blue-color);
+}
+
+.cisco-white-color {
+  color: var(--cisco-white-color);
+}
+
+.cisco-magenta-accent-color {
+  color: var(--cisco-magenta-accent-color);
+}
+
+.cisco-orange-accent-color {
+  color: var(--cisco-orange-accent-color);
 }

@@ -3,7 +3,7 @@ let currentEvent = "";
 
 function showReason(feedback) {
   selectedFeedback = feedback;
-  currentEvent = "gsxfy25";
+  currentEvent = "GSXFY26";
   const reasonContainer = document.getElementById("reason-container");
   if (feedback === "Neutral" || feedback === "Bad") {
     reasonContainer.classList.remove("hidden");

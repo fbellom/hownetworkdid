@@ -124,7 +124,7 @@
   --pico-color-indigo-100: #e5e0f4;
   --pico-color-indigo-50: #f2f0f9;
   --pico-color-indigo: #524ed2;
-  --pico-color-blue-950: #080f2d;
+  --pico-color-blue-950: #07182d;
   --pico-color-blue-900: #0c1a41;
   --pico-color-blue-850: #0e2358;
   --pico-color-blue-800: #0f2d70;
@@ -405,7 +405,7 @@
   --pico-color-slate-50: #eff1f4;
   --pico-color-slate: #525f7a;
   --pico-color-light: #fff;
-  --pico-color-dark: #000;
+  --pico-color-dark: #07182d;
 }
 
 .pico-color-red-950 {
