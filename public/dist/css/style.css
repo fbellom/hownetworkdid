@@ -27,15 +27,15 @@ body {
 }
 
 .feedback-button {
-  font-size: 50px;
+  font-size: 16px;
   margin: 0 12px;
   border: none;
   cursor: pointer;
   background-color: transparent;
   text-align: center;
   align-items: center;
-  max-width: 128px;
-  max-height: 128px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .feedback-button:hover {
@@ -68,6 +68,9 @@ body {
 .card--selection {
   text-align: center;
   align-items: center;
+  border-radius: 100px;
+  background-color: transparent;
+  border: 2px solid var(--cisco-blue-color);
 }
 
 .loader--section,
