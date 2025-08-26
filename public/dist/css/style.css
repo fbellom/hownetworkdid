@@ -8,6 +8,9 @@
   --cisco-white-color: #ffffff;
   --cisco-magenta-accent-color: #ff007f;
   --cisco-orange-accent-color: #ff9000;
+
+  /* height of fixed footer */
+  --footer-h: 64px;
 }
 
 * {
@@ -16,10 +19,12 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   font-family: Arial, sans-serif;
   height: 100vh;
   margin: 0;
+  background: var(--cisco-midnight-blue-color);
 }
 
 .feedback-options {
@@ -57,12 +62,17 @@ body {
 
 .sticky-footer {
   position: fixed;
+  left: 0;
+  right: 0;
   bottom: 0;
   z-index: 1000;
   width: 100%;
+  height: var(--footer-h);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 10px;
+  padding-bottom: env(safe-area-inset-bottom); /* for iPhone home indicator */
   text-align: center;
+  background: var(--cisco-midnight-blue-color);
 }
 
 .card--selection {
@@ -73,10 +83,28 @@ body {
   border: 2px solid var(--cisco-blue-color);
 }
 
+/* Replaced height:100vh with dynamic viewport units + fallbacks */
 .loader--section,
 .response--section,
 .pool--section {
-  height: 100vh;
+  min-height: calc(100dvh - var(--footer-h)); /* modern dynamic vh */
+  min-height: calc(100svh - var(--footer-h)); /* iOS Safari */
+  min-height: -webkit-fill-available; /* older WebKit */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Extra fallback for very old browsers */
+@supports not (height: 1dvh) {
+  .loader--section,
+  .response--section,
+  .pool--section {
+    min-height: calc(100vh - var(--footer-h));
+  }
+}
+
+main.container {
+  padding-bottom: calc(var(--footer-h) + env(safe-area-inset-bottom));
 }
 
 .hidden {

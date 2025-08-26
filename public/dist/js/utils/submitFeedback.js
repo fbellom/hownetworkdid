@@ -62,6 +62,12 @@ export function submitFeedback(currentEvent, orgId, eventCode) {
       }
       return response.json();
     })
-    .then((data) => handleSuccess(data))
+    .then((data) => {
+      handleSuccess(data);
+
+      setTimeout(() => {
+        window.location.href = "https://www.cisco.com";
+      }, 2000);
+    })
     .catch((error) => handleError(error));
 }

@@ -5,4 +5,5 @@ node_modules/
 *.orig
 .vscode/
 _server.js
+gptchanges.*
 
