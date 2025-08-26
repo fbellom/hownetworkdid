@@ -4,7 +4,7 @@ Basic Tool to Collect user feedback using smiley face icons
 
 ## User Interface
 
-![alt text](image.png)
+![alt text](screenshoot.png)
 
 ## How to use
 

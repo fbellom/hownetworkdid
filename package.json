@@ -1,6 +1,6 @@
 {
   "name": "howurateit",
-  "version": "2024.08.31",
+  "version": "2025.08.26",
   "description": "Collect User Experience feedback using smiley face icons",
   "main": "api.js",
   "scripts": {
