@@ -64,3 +64,12 @@ Adding Event Manager and Multitenancy Support with Authentication
 
   - New API URI /submit-feedback/o/:orgId/:eventCode
   - Feedback Database extended
+
+## Version 2025-08-25
+
+### FrontEnd GSX FY26
+
+- ADD:
+  - Cisco Look n Feel based on color pallete.
+  - Cisco Icons.
+  - White Outlined Smiley Faces
