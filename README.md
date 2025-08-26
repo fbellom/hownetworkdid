@@ -16,7 +16,7 @@ Execute:
 
 then run
 
-`npm start api.js`
+`npm start`
 
 by default ExpressJS serves on port 3000
 
